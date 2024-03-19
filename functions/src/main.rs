@@ -24,7 +24,7 @@ fn main() {
         Array {
             data: [1, 2, 3],
         },
-
+r
         Array {
             data: [3, 4, 5],
         },

@@ -134,56 +134,56 @@
 //     println!("success!");
 // }
 
-trait Summary {
-    fn summarize(&self) -> String;
-}
+// trait Summary {
+//     fn summarize(&self) -> String;
+// }
 
-#[derive(Debug)]
-struct Post {
-    title: String,
-    author: String,
-    content: String,
-}
+// #[derive(Debug)]
+// struct Post {
+//     title: String,
+//     author: String,
+//     content: String,
+// }
 
-impl Summary for Post {
-    fn summarize(&self) -> String {
-        format!("The author of post {} is {}", self.title, self.author)
-    }
-}
+// impl Summary for Post {
+//     fn summarize(&self) -> String {
+//         format!("The author of post {} is {}", self.title, self.author)
+//     }
+// }
 
-#[derive(Debug)]
-struct Weibo {
-    username: String,
-    content: String,
-}
+// #[derive(Debug)]
+// struct Weibo {
+//     username: String,
+//     content: String,
+// }
 
-impl Summary for Weibo {
-    fn summarize(&self) -> String {
-        format!("The content of Weibo by {} is: {}", self.username, self.content)
-    }
-}
+// impl Summary for Weibo {
+//     fn summarize(&self) -> String {
+//         format!("The content of Weibo by {} is: {}", self.username, self.content)
+//     }
+// }
 
-fn main() {
-    let post:Post = Post {
-        title: "Popular Rust".to_string(),
-        author: "Sunface".to_string(),
-        content: "Rust is awesome!".to_string(),
-    };
+// fn main() {
+//     let post:Post = Post {
+//         title: "Popular Rust".to_string(),
+//         author: "Sunface".to_string(),
+//         content: "Rust is awesome!".to_string(),
+//     };
 
-    let weibo:Weibo = Weibo {
-        username: "surface".to_string(),
-        content: "weibo seems to worse than Tweet.".to_string(),
-    };
+//     let weibo:Weibo = Weibo {
+//         username: "surface".to_string(),
+//         content: "weibo seems to worse than Tweet.".to_string(),
+//     };
 
-    summary(&post);
-    summary(&weibo);
+//     summary(&post);
+//     summary(&weibo);
 
-    println!("{:?}", post);
-    println!("{:?}", weibo);
-}
+//     println!("{:?}", post);
+//     println!("{:?}", weibo);
+// }
 
-//Implement `fn summary` below.
-fn summary<T: Summary>(a: &T) {
-    let output: String = a.summarize();
-    println!("{}", output);
-}
+// //Implement `fn summary` below.
+// fn summary<T: Summary>(a: &T) {
+//     let output: String = a.summarize();
+//     println!("{}", output);
+// }

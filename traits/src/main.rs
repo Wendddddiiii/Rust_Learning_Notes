@@ -187,3 +187,107 @@
 //     let output: String = a.summarize();
 //     println!("{}", output);
 // }
+
+// fn main() {
+//     assert_eq!(sum(1, 2), 3);
+//     println!("{}", sum(5, 5));
+// }
+
+// fn sum<T: std::ops::Add<Output = T>>(x: T, y: T) -> T {
+//     x + y 
+// }
+// struct Pair<T> {
+//     x: T,
+//     y: T,
+// }
+
+// impl<T> Pair<T> {
+//     fn new(x: T, y: T) -> Self {
+//         Self {
+//             x, 
+//             y,
+//         }
+//     }
+// }
+
+// impl <T: std::fmt::Debug + PartialOrd + PartialEq> Pair<T> {
+//     fn cmp_display(&self) {
+//         if self.x >= self.y {
+//             println!("The largest member is x = {:?}", self.x);
+//         } else {
+//             println!("The largest member is y = {:?}", self.y);
+//         }
+//     }
+// }
+// #[derive(Debug, PartialEq, PartialOrd)]
+// struct Unit(i32);
+
+// fn main() {
+//     let pair: Pair<Unit> = Pair::new(Unit(9), Unit(2));
+//     pair.cmp_display();
+// }
+
+// trait MyTrait {
+//     type MyType;
+
+//     fn get_my_type(&self) -> Self::MyType;
+// }
+
+// struct MyStruct {}
+
+// impl MyTrait for MyStruct {
+//     type MyType = i32;
+
+//     fn get_my_type(&self) -> Self::MyType {
+//         return 42;
+//     }
+// }
+
+
+//array with Trait Objects
+trait Bird {
+    fn quack(&self);
+}
+
+struct Duck;
+impl Duck {
+    fn fly(&self) {
+        println!("Look, the duck is flying")
+    }
+}
+
+struct Swan;
+impl Swan {
+    fn fly(&self) {
+        println!("Look, the duck, oh, sorry, the swan is flying")
+    }
+}
+
+impl Bird for Duck {
+    fn quack(&self) {
+        println!("{}", "duck duck");
+    }
+}
+
+impl Bird for Swan {
+    fn quack(&self) {
+        println!("{}", "swan swan");
+    }
+}
+
+fn main() {
+    let birds: [&dyn Bird; 2] = [&Duck, &Swan]; //usize
+    for bird in birds {
+        bird.quack(); 
+    }
+
+    println!("success!");
+}
+
+fn hatch_a_bird(species: u8) -> Box<dyn Bird> {
+    match species {
+        1 => Box::new(Swan),
+        2 => Box::new(Duck),
+        _ => panic!(),
+    }
+}

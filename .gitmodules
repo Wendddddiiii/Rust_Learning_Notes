@@ -1,0 +1,6 @@
+[submodule "lifetimekata"]
+	path = lifetimekata
+	url = https://github.com/username/lifetimekata.git
+[submodule "my_project"]
+	path = my_project
+	url = https://github.com/username/my_project.git

@@ -77,3 +77,57 @@
 //     dbg!(find_the_median(vec![]));
 // }
 
+
+fn longest_common_subsequence(x: Vec<i32>, y: Vec<i32>) -> usize {
+    let i = 0;
+    let shorter_len = usize::min(x.len(), y.len());
+
+    let mut current_run = 0;
+    let mut longest_run = 0;
+    for mut i in 0..shorter_len {
+        let a = x[i];
+        let b = y[i];
+
+
+        if a == b {
+            current_run += 1;
+            if current_run > longest_run {
+                longest_run = current_run;
+            }
+
+        } else {
+            current_run = 0;
+        }
+        i += 1;
+    }
+    longest_run
+}
+
+
+//Imperative(longest subsequence) code: Explaining how to do your task
+//Functional code: Desrcibing how to do your task
+fn longest_equal_run_function(x: Vec<i32>, y: Vec<i32>) -> usize {
+    x.into_iter().zip(y.into_iter())
+        .map(|(a, b)| a == b)
+        .fold((0, 0), |(current, longest), eq| {
+            if eq {
+                let current = current + 1;
+                let longest = usize::max(current, longest);
+                (current, longest)
+            } else {
+                (0, longest)
+            }
+        }).1
+        //The .1 at the end of the fold call is used to extract the second element of this tuple
+}
+
+fn main() {
+    dbg!(longest_common_subsequence(vec![6, 9,9,1,1, 2, 3], vec![1, 9,9, 1,3,2,3]));
+    dbg!(longest_common_subsequence(vec![1, 2, 3], vec![1]));
+    dbg!(longest_common_subsequence(vec![1, 2, 3], vec![4]));
+    dbg!(longest_equal_run_function(vec![1, 2, 3], vec![1, 2]));
+
+    if true { return }
+
+
+}

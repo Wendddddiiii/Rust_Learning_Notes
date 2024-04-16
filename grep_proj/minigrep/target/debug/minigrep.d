@@ -1,0 +1,1 @@
+/Users/wenditang/Desktop/rust-examples/Rust_Learning_Notes/grep_proj/minigrep/target/debug/minigrep: /Users/wenditang/Desktop/rust-examples/Rust_Learning_Notes/grep_proj/minigrep/src/lib.rs /Users/wenditang/Desktop/rust-examples/Rust_Learning_Notes/grep_proj/minigrep/src/main.rs
